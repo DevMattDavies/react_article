@@ -191,6 +191,71 @@
         <hr />
         <div id="context-section">
           <h2 class="article-subtitle">Context</h2>
+          <p>
+            Context allows you to pass data through a component tree without
+            having to explicitly pass a prop through every level of the tree.
+            Context is designed to share data that can be considered “global”
+            for a tree of React components - apply it sparingly because it makes
+            component reuse more difficult. So don't reach for context right
+            away; See if you can better organize your components to avoid prop
+            drilling.<br /><br />
+            React context is great when you are passing data that can be used in
+            any component in your application.<br /><br />
+            These types of data include:<br /><br />
+            • Theme data (like dark or light mode)<br />
+            • User data (the currently authenticated user)<br />
+            • Location-specific data (like user language or locale) <br />
+            • Data should be placed on React context that does not need to be
+            updated often.<br /><br />
+            Context helps us avoid props drilling. Props drilling is a term to
+            describe when you pass props down multiple levels to a nested
+            component, through components that don't need it. Context is an API
+            that is built into React meaning that we can create and use context
+            directly by importing React in any React project.<br /><br />
+          </p>
+          <p class="section-subtitle">Using Context</p>
+          <br />
+          <p>
+            There are four steps to using React context:<br /><br />
+            1. Create context using the createContext method<br />
+            2. Take your created context and wrap the context provider around
+            your component tree<br />
+            3. Put any value you like on your context provider using the value
+            prop<br />
+            4. Read that value within any component by using the context
+            consumer<br />
+          </p>
+          <img class="article-img" src="./images/context1.png" />
+          <p>
+            To explain these steps in more detail:<br /><br />
+            Above the 'App' component, we are creating context using
+            React.createContext() and assigning the result to a variable called
+            UserContext. In almost every case, you will want to export it
+            because your component will be in another file. In the App
+            component, we are using UserContext, specifically
+            UserContext.Provider. The created context is an object with two
+            properties: Provider and Consumer, both of which are components. To
+            pass our value down to every component in our App, we wrap our
+            Provider component around it (in this case, User). On
+            UserContext.Provider, we put the value that we want to pass down our
+            entire component tree. We set that equal to the value prop to do so.
+            In this case it is the user's name, for example “Amanda”.<br /><br />
+            In User we use the consumer component “UserContext.Consumer”, to use
+            the value provided for context. To use our passed down value, we use
+            what is called the render props pattern. It is just a function that
+            the consumer component gives us as a prop. And in the return of that
+            function, we can return and use value.
+          </p>
+          <br />
+          <p class="section-subtitle">useContext</p>
+          <br />
+          <p>Another way to use context is with the useContext hook:</p>
+          <img class="article-img" src="./images/context2.png" />
+          <p>
+            Using the useContext hook allows you to make components more concise
+            and also to create custom hooks.
+          </p>
+          <hr>
         </div>
       </div>
     </div>
