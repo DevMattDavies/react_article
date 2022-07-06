@@ -1,1 +1,85 @@
+@font-face {
+  font-family: "Futura PT";
+  src: url("FuturaPT-Light.woff2") format("woff2"),
+    url("FuturaPT-Light.woff") format("woff"),
+    url("FuturaPT-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
 
+html {
+  font-size: calc(60% + 0.8vmin);
+}
+
+* {
+  font-size: 1rem;
+  font-family: "Futura PT", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+hr {
+  width: 50%;
+  margin: 2rem auto;
+  border-bottom: 1px solid black;
+  color: black;
+
+}
+
+/* Title section */
+
+#title-section {
+  margin-top: 5rem;
+  width: 100%;
+}
+
+#page-title {
+  font-size: 3rem;
+}
+
+#page-subtitle {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+/* Content Section */
+
+#text-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  width: 100%;
+  border: 1px solid black;
+  margin: 3rem 0;
+}
+
+.article-subtitle {
+  font-size: 2rem;
+  font-weight: 400;
+  text-decoration: underline;
+  margin: 1.5rem 0;
+}
+
+.section-subtitle {
+  text-decoration: underline;
+}
+
+.article-img {
+  width: auto;
+  height: 20rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+}
