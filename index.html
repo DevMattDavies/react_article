@@ -8,183 +8,190 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div id="title-section">
-      <h1 id="page-title">React</h1>
-      <h2 id="page-subtitle">Looking at Props, State and Context</h2>
-    </div>
-    <div id="text-content">
-      <div id="prop-section">
-        <h2 class="article-subtitle">Props</h2>
-        <p>
-          In React, 'props' are properties that act as arguments or an input for
-          a React component. To use props, you have to pass in 'props' as an
-          argument in your function. This is similar to passing arguments into
-          your regular JavaScript functions.<br /><br />
-          • A prop is passed into a React component via HTML attributes.<br />
-          • They can pass data from one component to another. <br /><br />
-          React makes it easy for us to import a component's logic without
-          rewriting the code. Props allow us to reuse a component's logic
-          dynamically - the data will not be static, so for every other
-          component using that logic, its data can be modified to fit the
-          requirements. To use props, you have to pass in 'props' as an argument
-          in your function. This is similar to passing arguments into your
-          regular JavaScript functions.
-        </p>
-        <br />
-        <p class="section-subtitle">Using Props</p>
-        <img class="article-img" src="./images/props1.png" />
-        <p>
-          Step 1: Pass in props as an argument<br />
-          In the first line of the code above you can see that we pass in the
-          props to our component.
-        </p>
-        <br />
-        <p>
-          Step 2: Declare props variables<br />
-          On lines 2 and 3 we declare variables for our props. If you do not
-          want to create variables for your props they can be handed in as they
-          are using {props.name} for example within your code.
-        </p>
-        <br />
-        <p>
-          Step 3: Using the variables in JSX template<br />
-          We have declared our variables so they can be used within the code
-          now, for example on line 6 we call the variable “name” as a prop.
-        </p>
-        <br />
-        <p>
-          Step 4: Pass data to props in the App component<br />
-          Now the props have been created, we need to pass data to them. This is
-          how your App component should look at the moment:
-        </p>
-        <img class="article-img" src="./images/props2.png" />
-        <p>
-          But to use our data we will pass it in like attributes as seen in the
-          example below on line 5.
-        </p>
-        <img class="article-img" src="./images/props3.png" />
-        <p>
-          This should display the following in your browser:<br /><br />
-
-          “My name is Amanda.<br />
-          My favorite hobby is Crochet.”<br /><br />
-
-          Another option is to use destructing with props:
-        </p>
-        <img class="article-img" src="./images/props4.png" />
-        <p>
-          Here, instead of passing 'props' as an argument, you destructure and
-          pass in the variables as the function's argument.
-        </p>
-        <br />
-        <p class="section-subtitle">Adding a default value to props</p>
-        <br />
-        <p>
-          You can add a default value to your props so they are not empty when
-          you create them. To do this you add some code before you export the
-          component as shown in the example below:
-        </p>
-        <img class="article-img" src="./images/props5.png" />
-        <p>
-          You start with your component name followed by “.defaultProps” and
-          then you can assign defaults to each variable. When you pass in data
-          to your component it overrides the default values.
-        </p>
+    <div id="master-container">
+      <div id="title-container">
+        <div id="title-section">
+          <h1 id="page-title">React</h1>
+          <h2 id="page-subtitle">Looking at Props, State and Context</h2>
+        </div>
       </div>
-      <br />
-      <hr />
-      <div id="state-section">
-        <h2 class="article-subtitle">State</h2>
-        <p>
-          Props can be passed down through the component tree and so that data
-          can be accessed deep in our React app.<br /><br />
-          Things that can be passed as props;<br /><br />
-          • Functions<br />
-          • Arrays<br />
-          • Objects<br />
-          • Variables<br /><br />
-          But what happens when we need to update these things? Vanilla JS
-          allows us to mutably change these by directing two separate variables
-          to the same point in memory.<br /><br />
-          For example:
-        </p>
-        <img class="article-img" src="./images/state1.png" />
-        <p>
-          In our example here, the 'yourFruit' variable is an example of a
-          mutable object. If the 'myFruit' variable is changed, then 'yourFruit'
-          will also change. Because React uses the virtual DOM to compare
-          changes between renders, mutability is not something that is
-          desirable. Instead, changes must be made immutably, meaning that a new
-          copy of the target data needs to be made, one which can then be
-          changed independently of the original. To do this, you can 'spread'
-          the contents of the original into a new array using the spread
-          operator.<br /><br />
-          For example:
-        </p>
-        <img class="article-img" src="./images/state2.png" />
-        <p>
-          'yourFruit' would now be an array containing [“Apple”, “Banana”]. Any
-          changes to myFruit would not affect yourFruit in any way, and any
-          changes to yourFruit would not affect myFruit.
-        </p>
-        <br /><br />
-        <p>
-          Going back to the concept of React and rendering – the aim is for
-          React to re-render the page dynamically when it realises something has
-          been updated. If something is changed mutably, then React will not
-          recognise anything has been updated from the previous render and will
-          not update the page. So to get React to re-render, we can store data
-          and make changes to it using the 'useState' hook. By doing so, any
-          state changes will automatically trigger React to re-render our page,
-          therefore updating the data displayed dynamically.<br /><br />
-          To get started with useState, you will need to import it from React as
-          with any other Hooks:
-        </p>
-        <img class="article-img" src="./images/state3.png" />
-        <p>
-          Once it has been imported, you can then set your variable and its
-          initial state:
-        </p>
-        <img class="article-img" src="./images/state4.png" />
-        <p>
-          We can see from the example that useState initially takes three
-          parameters;<br /><br />
-          • The first is the name of your variable (what you want to call your
-          piece of state)<br />
-          • The second is the function which you will call to update this piece
-          of state (always the word 'set' followed by your variable name)<br />
-          • The third is the initial state with which you want to initialise the
-          state, which is inserted inside the smooth brackets after useState(
-          )<br />
-          • This can be an empty string (“ ”), empty array ([ ]), object ({ }),
-          or even contain data such as ([…myFruit, “Banana”]) from our previous
-          example<br /><br />
-          Now that the piece of state has been created, any time we want to
-          update the state we can call the 'setYourState' function:
-        </p>
-        <img class="article-img" src="./images/state5.png" />
-        <p>
-          So here we are using a combination of the topics we have discussed so
-          far; we have created a piece of state and initially set it to an empty
-          array. We have then updated that piece of state using the setYourState
-          function, which has 'spread' the myFruit variable and added our own
-          array item to the end. Each time we now reference yourState, it will
-          return an array of [“Apple”, “Banana”] until such time we update the
-          state again. This process ensures our data remains immutable, the
-          changes can be easily tracked by React, and can be cleanly re-rendered
-          each time.<br /><br />
-          State (and the setState function) can be passed down as props through
-          our component tree so that other components can access it and other
-          events can update it. As you can imagine, in a large React app there
-          may be lots of pieces of state and lots of props to have to pass down,
-          which can make it cumbersome to navigate and if you make a change on
-          one level, means you have to make the same change at all levels of
-          component that it passes through or uses as a prop. This is where
-          Context can make our lives easier…
-        </p>
-      </div>
-      <div id="context-section">
-        <h2 class="article-subtitle">Context</h2>
+      <div id="text-content">
+        <div id="prop-section">
+          <h2 class="article-subtitle">Props</h2>
+          <p>
+            In React, 'props' are properties that act as arguments or an input
+            for a React component. To use props, you have to pass in 'props' as
+            an argument in your function. This is similar to passing arguments
+            into your regular JavaScript functions.<br /><br />
+            • A prop is passed into a React component via HTML attributes.<br />
+            • They can pass data from one component to another. <br /><br />
+            React makes it easy for us to import a component's logic without
+            rewriting the code. Props allow us to reuse a component's logic
+            dynamically - the data will not be static, so for every other
+            component using that logic, its data can be modified to fit the
+            requirements. To use props, you have to pass in 'props' as an
+            argument in your function. This is similar to passing arguments into
+            your regular JavaScript functions.
+          </p>
+          <br />
+          <p class="section-subtitle">Using Props</p>
+          <img class="article-img" src="./images/props1.png" />
+          <p>
+            Step 1: Pass in props as an argument<br />
+            In the first line of the code above you can see that we pass in the
+            props to our component.
+          </p>
+          <br />
+          <p>
+            Step 2: Declare props variables<br />
+            On lines 2 and 3 we declare variables for our props. If you do not
+            want to create variables for your props they can be handed in as
+            they are using {props.name} for example within your code.
+          </p>
+          <br />
+          <p>
+            Step 3: Using the variables in JSX template<br />
+            We have declared our variables so they can be used within the code
+            now, for example on line 6 we call the variable “name” as a prop.
+          </p>
+          <br />
+          <p>
+            Step 4: Pass data to props in the App component<br />
+            Now the props have been created, we need to pass data to them. This
+            is how your App component should look at the moment:
+          </p>
+          <img class="article-img" src="./images/props2.png" />
+          <p>
+            But to use our data we will pass it in like attributes as seen in
+            the example below on line 5.
+          </p>
+          <img class="article-img" src="./images/props3.png" />
+          <p>
+            This should display the following in your browser:<br /><br />
+
+            “My name is Amanda.<br />
+            My favorite hobby is Crochet.”<br /><br />
+
+            Another option is to use destructing with props:
+          </p>
+          <img class="article-img" src="./images/props4.png" />
+          <p>
+            Here, instead of passing 'props' as an argument, you destructure and
+            pass in the variables as the function's argument.
+          </p>
+          <br />
+          <p class="section-subtitle">Adding a default value to props</p>
+          <br />
+          <p>
+            You can add a default value to your props so they are not empty when
+            you create them. To do this you add some code before you export the
+            component as shown in the example below:
+          </p>
+          <img class="article-img" src="./images/props5.png" />
+          <p>
+            You start with your component name followed by “.defaultProps” and
+            then you can assign defaults to each variable. When you pass in data
+            to your component it overrides the default values.
+          </p>
+        </div>
+        <br />
+        <hr />
+        <div id="state-section">
+          <h2 class="article-subtitle">State</h2>
+          <p>
+            Props can be passed down through the component tree and so that data
+            can be accessed deep in our React app.<br /><br />
+            Things that can be passed as props;<br /><br />
+            • Functions<br />
+            • Arrays<br />
+            • Objects<br />
+            • Variables<br /><br />
+            But what happens when we need to update these things? Vanilla JS
+            allows us to mutably change these by directing two separate
+            variables to the same point in memory.<br /><br />
+            For example:
+          </p>
+          <img class="article-img" src="./images/state1.png" />
+          <p>
+            In our example here, the 'yourFruit' variable is an example of a
+            mutable object. If the 'myFruit' variable is changed, then
+            'yourFruit' will also change. Because React uses the virtual DOM to
+            compare changes between renders, mutability is not something that is
+            desirable. Instead, changes must be made immutably, meaning that a
+            new copy of the target data needs to be made, one which can then be
+            changed independently of the original. To do this, you can 'spread'
+            the contents of the original into a new array using the spread
+            operator.<br /><br />
+            For example:
+          </p>
+          <img class="article-img" src="./images/state2.png" />
+          <p>
+            'yourFruit' would now be an array containing [“Apple”, “Banana”].
+            Any changes to myFruit would not affect yourFruit in any way, and
+            any changes to yourFruit would not affect myFruit.
+          </p>
+          <br /><br />
+          <p>
+            Going back to the concept of React and rendering – the aim is for
+            React to re-render the page dynamically when it realises something
+            has been updated. If something is changed mutably, then React will
+            not recognise anything has been updated from the previous render and
+            will not update the page. So to get React to re-render, we can store
+            data and make changes to it using the 'useState' hook. By doing so,
+            any state changes will automatically trigger React to re-render our
+            page, therefore updating the data displayed dynamically.<br /><br />
+            To get started with useState, you will need to import it from React
+            as with any other Hooks:
+          </p>
+          <img class="article-img" src="./images/state3.png" />
+          <p>
+            Once it has been imported, you can then set your variable and its
+            initial state:
+          </p>
+          <img class="article-img" src="./images/state4.png" />
+          <p>
+            We can see from the example that useState initially takes three
+            parameters;<br /><br />
+            • The first is the name of your variable (what you want to call your
+            piece of state)<br />
+            • The second is the function which you will call to update this
+            piece of state (always the word 'set' followed by your variable
+            name)<br />
+            • The third is the initial state with which you want to initialise
+            the state, which is inserted inside the smooth brackets after
+            useState( )<br />
+            • This can be an empty string (“ ”), empty array ([ ]), object ({
+            }), or even contain data such as ([…myFruit, “Banana”]) from our
+            previous example<br /><br />
+            Now that the piece of state has been created, any time we want to
+            update the state we can call the 'setYourState' function:
+          </p>
+          <img class="article-img" src="./images/state5.png" />
+          <p>
+            So here we are using a combination of the topics we have discussed
+            so far; we have created a piece of state and initially set it to an
+            empty array. We have then updated that piece of state using the
+            setYourState function, which has 'spread' the myFruit variable and
+            added our own array item to the end. Each time we now reference
+            yourState, it will return an array of [“Apple”, “Banana”] until such
+            time we update the state again. This process ensures our data
+            remains immutable, the changes can be easily tracked by React, and
+            can be cleanly re-rendered each time.<br /><br />
+            State (and the setState function) can be passed down as props
+            through our component tree so that other components can access it
+            and other events can update it. As you can imagine, in a large React
+            app there may be lots of pieces of state and lots of props to have
+            to pass down, which can make it cumbersome to navigate and if you
+            make a change on one level, means you have to make the same change
+            at all levels of component that it passes through or uses as a prop.
+            This is where Context can make our lives easier…
+          </p>
+        </div>
+        <br />
+        <hr />
+        <div id="context-section">
+          <h2 class="article-subtitle">Context</h2>
+        </div>
       </div>
     </div>
   </body>
